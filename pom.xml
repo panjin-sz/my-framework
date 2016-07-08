@@ -5,7 +5,7 @@
   <artifactId>my-framework</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>my-framework</name>
+  <name>my-framework-parent</name>
   <url>http://maven.apache.org</url>
   
   <properties>
@@ -13,6 +13,7 @@
 	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	<spring.version>4.1.6.RELEASE</spring.version>
   </properties>
+  
   <dependencyManagement>
 	<dependencies>
 		<!-- framework -->
@@ -35,6 +36,39 @@
 			<groupId>com.panjin.framework</groupId>
 			<artifactId>framework-basic</artifactId>
 			<version>${project.version}</version>
+		</dependency>
+		
+		<!-- spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
 		</dependency>
 		
 		<!-- test -->

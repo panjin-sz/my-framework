@@ -7,16 +7,29 @@
     <artifactId>my-framework</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
+  
   <artifactId>framework-core</artifactId>
-  <packaging>jar</packaging>
   <name>my-framework-core</name>
-  <url>http://maven.apache.org</url>
+  <packaging>jar</packaging>
 
   <properties>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
   <dependencies>
-  	
+  	<!-- framework -->
+	<dependency>
+		<groupId>com.panjin.framework</groupId>
+		<artifactId>framework-basic</artifactId>
+	</dependency>
+
+	<!-- spring -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context-support</artifactId>
+	</dependency>
   </dependencies>
+  
+  <build>
+  </build>
 </project>
