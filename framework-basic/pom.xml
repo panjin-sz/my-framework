@@ -10,15 +10,43 @@
   <artifactId>framework-basic</artifactId>
   <packaging>jar</packaging>
   <name>my-framework-basic</name>
-  <url>http://maven.apache.org</url>
   
   <properties>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
   <dependencies>
+  	<!-- fast json -->
+	<dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>fastjson</artifactId>
+	</dependency>
+	
+	<!-- logging -->
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-api</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>jcl-over-slf4j</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>log4j-over-slf4j</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>ch.qos.logback</groupId>
+		<artifactId>logback-core</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>ch.qos.logback</groupId>
+		<artifactId>logback-classic</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.codehaus.janino</groupId>
+		<artifactId>janino</artifactId>
+	</dependency>
   </dependencies>
   
-  <build>
-  </build>
 </project>
