@@ -6,7 +6,7 @@ package com.panjin.framework.basic.common;
 import java.io.Serializable;
 
 /**
- *
+ * 返回对象实体
  *
  * @author panjin
  * @version $Id: OpResponse.java 2016年7月13日 下午2:17:38 $
