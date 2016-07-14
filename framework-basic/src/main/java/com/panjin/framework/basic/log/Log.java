@@ -17,7 +17,7 @@ public class Log {
     /**
      * 信息是否做加密处理
      */
-    private static boolean isInfoCrytoEnable = true;
+    private static boolean isSansInfoCryptoEnable = true;
 
     /**
      * 操作类型
@@ -44,12 +44,12 @@ public class Log {
      */
     private static final String EMPTY_STR = "";
 
-    public static boolean isInfoCrytoEnable() {
-        return isInfoCrytoEnable;
+    public static boolean isSansInfoCryptoEnable() {
+        return isSansInfoCryptoEnable;
     }
 
-    public static void setInfoCrytoEnable(boolean isInfoCrytoEnable) {
-        Log.isInfoCrytoEnable = isInfoCrytoEnable;
+    public static void setSansInfoCryptoEnable(boolean isSansInfoCryptoEnable) {
+        Log.isSansInfoCryptoEnable = isSansInfoCryptoEnable;
     }
 
     public Log(String operation) {
@@ -136,7 +136,7 @@ public class Log {
                 return kvOfIdentity(key, value);
             }
         } catch (Throwable ex) {
-            if (isInfoCrytoEnable()) {
+            if (isSansInfoCryptoEnable()) {
                 params.put(key, CryptoConvertConfig.getDefault(CryptoConvertConfig.DEFAULT_CONVERT).convert(value));
             } else {
                 params.put(key, value);
@@ -146,7 +146,7 @@ public class Log {
     }
 
     private Log kvOfObject(String key, Object value) {
-        if (isInfoCrytoEnable()) {
+        if (isSansInfoCryptoEnable()) {
             params.put(key, SensitiveObjectLogUtils.convert(value));
         } else {
             params.put(key, value);
@@ -164,7 +164,7 @@ public class Log {
      * @return
      */
     private Log kvOfIdentity(String key, Object value) {
-        if (isInfoCrytoEnable()) {
+        if (isSansInfoCryptoEnable()) {
             params.put(key, CryptoConvertConfig.getIdentityConvertor().convert(value));
         } else {
             params.put(key, value);
@@ -182,7 +182,7 @@ public class Log {
      * @return
      */
     private Log kvOfEmail(String key, Object value) {
-        if (isInfoCrytoEnable()) {
+        if (isSansInfoCryptoEnable()) {
             params.put(key, CryptoConvertConfig.getEmailConvertor().convert(value));
         } else {
             params.put(key, value);
@@ -200,7 +200,7 @@ public class Log {
      * @return
      */
     private Log kvOfMobile(String key, Object value) {
-        if (isInfoCrytoEnable()) {
+        if (isSansInfoCryptoEnable()) {
             params.put(key, CryptoConvertConfig.getPhoneConvertor().convert(value));
         } else {
             params.put(key, value);
@@ -218,7 +218,7 @@ public class Log {
      * @return
      */
     private Log kvOfPhone(String key, Object value) {
-        if (isInfoCrytoEnable()) {
+        if (isSansInfoCryptoEnable()) {
             params.put(key, CryptoConvertConfig.getPhoneConvertor().convert(value));
         } else {
             params.put(key, value);
@@ -236,7 +236,7 @@ public class Log {
      * @return
      */
     private Log kvOfIDCard(String key, Object value) {
-        if (isInfoCrytoEnable()) {
+        if (isSansInfoCryptoEnable()) {
             params.put(key, CryptoConvertConfig.getIDCardConvertor().convert(value));
         } else {
             params.put(key, value);
@@ -254,7 +254,7 @@ public class Log {
      * @return
      */
     private Log kvOfBankCard(String key, Object value) {
-        if (isInfoCrytoEnable()) {
+        if (isSansInfoCryptoEnable()) {
             params.put(key, CryptoConvertConfig.getBankCardConvertor().convert(value));
         } else {
             params.put(key, value);
