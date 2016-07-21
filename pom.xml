@@ -14,8 +14,9 @@
 	<spring.version>4.1.6.RELEASE</spring.version>
 	<slf4j.version>1.7.21</slf4j.version>
 	<logback.version>1.1.7</logback.version>
-	<httpClient.version>4.4.1</httpClient.version>
+	<httpClient.version>4.3.3</httpClient.version>
 	<janino.version>2.7.8</janino.version>
+	<nqsClient.version>1.0-SNAPSHOT</nqsClient.version>
   </properties>
   
   <dependencyManagement>
@@ -184,6 +185,18 @@
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 			<scope>test</scope>
+		</dependency>
+		
+		<!-- netease nqs -->
+		<dependency>
+			<groupId>com.panjin.cloud.nqs</groupId>
+			<artifactId>nqs-client-java</artifactId>
+			<version>${nqsClient.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.rabbitmq</groupId>
+			<artifactId>amqp-client</artifactId>
+			<version>3.5.3</version>
 		</dependency>
 		
 		<!-- apache httpclient -->

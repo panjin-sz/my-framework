@@ -135,6 +135,16 @@
 		</exclusions>
 	</dependency>
 	
+	<!-- MQ start -->
+	<dependency>
+		<groupId>com.panjin.cloud.nqs</groupId>
+		<artifactId>nqs-client-java</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>com.rabbitmq</groupId>
+		<artifactId>amqp-client</artifactId>
+	</dependency>
+	
 	<!-- dubbo -->
 	<dependency>
 		<groupId>com.alibaba</groupId>

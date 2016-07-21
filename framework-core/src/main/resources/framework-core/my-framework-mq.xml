@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 使用托管方式的disconf配置(无代码侵入, 配置更改不会自动reload) -->
+	<bean id="disconf_mq_locations"
+		class="com.baidu.disconf.client.addons.properties.ReloadablePropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>mq.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="disconf_mq_propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="propertiesArray">
+			<list>
+				<ref bean="disconf_mq_locations" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- rabbitMQ实例的配置 -->
+	<bean id="mqConfig" class="com.panjin.framework.core.mq.MQConfig">
+		<property name="host" value="${mq.host}" />
+		<property name="port" value="${mq.port}" />
+		<property name="username" value="${mq.username}" />
+		<property name="password" value="${mq.password}" />
+		<property name="exchange" value="${mq.exchange}" />
+	</bean>
+
+	<!-- 生产者的配置 -->
+	<bean id="mqProducerConfig" class="com.panjin.framework.core.mq.MQProducerConfig">
+		<property name="requireConfirm" value="${mq.producer.confirm}"/>
+		<property name="confirmTimeout" value="${mq.producer.confirmTimeout}"/>
+	</bean>
+
+	<!-- 生产者的bean -->
+	<bean id="mqProducer" class="com.panjin.framework.core.mq.MQProducer" init-method="init"
+		destroy-method="destory">
+		<constructor-arg name="mqConfig" ref="mqConfig"/>
+		<constructor-arg name="mqProducerConfig" ref="mqProducerConfig"/>
+	</bean>
+	
+	<!-- 消费者的配置 -->
+	<bean id="mqConsumerConfig" class="com.panjin.framework.core.mq.MQConsumerConfig">
+		<property name="prefetchCount" value="${mq.consumer.prefetchCount}"/>
+	</bean>
+	
+	<!-- 消费者的bean -->
+	<bean id="mqConsumer" class="com.panjin.framework.core.mq.MQConsumer" init-method="init"
+		destroy-method="destory">
+		<constructor-arg name="mqConfig" ref="mqConfig"/>
+		<constructor-arg name="mqConsumerConfig" ref="mqConsumerConfig"/>
+	</bean>
+	
+</beans>

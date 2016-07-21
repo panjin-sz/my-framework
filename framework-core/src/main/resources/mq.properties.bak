@@ -1,0 +1,9 @@
+mq.host=10.166.224.32
+mq.port=5672
+mq.username=guest
+mq.password=guest
+mq.exchange=account-server
+
+mq.producer.confirm=true
+mq.producer.confirmTimeout=3000
+mq.consumer.prefetchCount=100
