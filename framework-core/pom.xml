@@ -168,10 +168,10 @@
 	</dependency>
 	
 	<!--netease trace -->
-	<!-- <dependency>
+	<dependency>
 		<groupId>com.panjin.backend.trace</groupId>
 		<artifactId>trace-client</artifactId>
-	</dependency> -->
+	</dependency>
 
 	<!--commons-net -->
 	<dependency>

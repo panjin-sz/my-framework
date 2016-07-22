@@ -22,4 +22,15 @@ public class LogOp {
     public static final String HTTP_RESP_FAIL = "http resp fail";
     public static final String HTTP_DNS_RESOLVE_SUC = "httpclient dns resolver suc";
     public static final String HTTP_DNS_RESOLVE_FAIL = "httpclient dns resolver fail";
+    
+    public static final String MQ_CONSUMER_INIT = "mq.initConsumer";
+    public static final String MQ_CONSUME_MSG = "mq.consumeMessage";
+    public static final String MQ_CONSUME_FAIL = "mq.consume.fail";
+    public static final String MQ_CONSUME_RE_CONN = "mq.consume.reconnect";
+    public static final String MQ_CONSUME_HOOK = "mq.consume.hook";
+    public static final String MQ_CONSUME_SHUTDOWN = "mq.consume.shutdown";
+    public static final String MQ_PRODUCER_INIT = "mq.initProducer";
+    public static final String MQ_PRODUCER_FAIL = "mq.producer.sendFail";
+    public static final String MQ_PRODUCER_SHUTDOWN = "mq.producer.shutdown";
+    public static final String MQ_DESTORY_FAIL = "mq.destory.exception";
 }
