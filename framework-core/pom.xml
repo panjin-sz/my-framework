@@ -167,6 +167,12 @@
 		<artifactId>freemarker</artifactId>
 	</dependency>
 	
+	<!--netease trace -->
+	<!-- <dependency>
+		<groupId>com.panjin.backend.trace</groupId>
+		<artifactId>trace-client</artifactId>
+	</dependency> -->
+
 	<!--commons-net -->
 	<dependency>
 		<groupId>commons-net</groupId>
