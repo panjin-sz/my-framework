@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 使用托管方式的disconf配置(无代码侵入, 配置更改不会自动reload) -->
+	<bean id="disconf_sftp_locations"
+		class="com.baidu.disconf.client.addons.properties.ReloadablePropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>sftp.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="disconf_sftp_propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="propertiesArray">
+			<list>
+				<ref bean="disconf_sftp_locations" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="sftpConfig" class="com.panjin.framework.core.sftp.SFtpConfig">
+		<property name="host" value="${sftp.host}"/>
+		<property name="port" value="${sftp.port}" />
+		<property name="username" value="${sftp.username}" />
+		<property name="password" value="${sftp.password}" />
+		<property name="privatekey" value="${sftp.privatekey}" />
+		<property name="privatekeypassphrase" value="${sftp.privatekeypassphrase}" />
+		<property name="timeout" value="${sftp.timeout}" />
+	</bean>
+
+	<bean id="sftpChannelFactory" class="com.panjin.framework.core.sftp.SFtpChannelFactory" init-method="init" destroy-method="destory">
+        <property name="sftpConfig" ref="sftpConfig"/>
+	</bean>		
+	
+	<bean id="sFtpClientService" class="com.panjin.framework.core.sftp.SFtpClientService">
+		<constructor-arg name="sftpChannelFactory" ref="sftpChannelFactory"/>
+	</bean>
+</beans>
