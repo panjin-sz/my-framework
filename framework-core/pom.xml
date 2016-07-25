@@ -192,6 +192,12 @@
 		<groupId>net.sf.jxls</groupId>
 		<artifactId>jxls-reader</artifactId>
 	</dependency>
+	
+	<!-- redis client -->
+	<dependency>
+	    <groupId>redis.clients</groupId>
+	    <artifactId>jedis</artifactId>
+	</dependency>
 
   </dependencies>
   

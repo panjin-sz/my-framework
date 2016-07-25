@@ -16,7 +16,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
  * @author panjin
  * @version $Id: JsonUtil.java 2016年7月15日 下午3:01:32 $
  */
-public final class JsonUtil {
+public class JsonUtil {
 
     /**
      * 根据JSON字符串解析出java对象

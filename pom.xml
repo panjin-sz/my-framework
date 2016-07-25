@@ -29,7 +29,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.panjin.framework</groupId>
-			<artifactId>framework-tools</artifactId>
+			<artifactId>framework-tool</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
@@ -337,6 +337,13 @@
 			<groupId>com.jcraft</groupId>
 			<artifactId>jsch</artifactId>
 			<version>0.1.53</version>
+		</dependency>
+		
+		<!-- redis client -->
+		<dependency>
+		    <groupId>redis.clients</groupId>
+		    <artifactId>jedis</artifactId>
+		    <version>2.7.3</version>
 		</dependency>
 	</dependencies>
   </dependencyManagement>

@@ -33,4 +33,12 @@ public class LogOp {
     public static final String MQ_PRODUCER_FAIL = "mq.producer.sendFail";
     public static final String MQ_PRODUCER_SHUTDOWN = "mq.producer.shutdown";
     public static final String MQ_DESTORY_FAIL = "mq.destory.exception";
+    
+    public static final String EXP_RESOLVER_DEAL = "exception.resolver.deal";
+    public static final String EXP_RESOLVER_FAIL = "exception.resolver.fail";
+    public static final String EXP_NEXT_ACTION_INVALID = "exception.nextAction.invalid";
+    
+    public static final String TOKEN_PARAMS = "token.params";
+    public static final String TOKEN_GEN = "token.generate";
+    public static final String TOKEN_CHECK = "token.check";
 }

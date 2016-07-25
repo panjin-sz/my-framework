@@ -9,7 +9,7 @@
       					http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<bean id="exceptionHandler"
-		class="com.panjin.framework.web.servlet.handler.IMyHandlerExceptionResolver">
+		class="com.panjin.framework.web.servlet.handler.MyHandlerExceptionResolver">
 	</bean>
 
 	<bean

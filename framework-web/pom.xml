@@ -17,6 +17,40 @@
   </properties>
   
   <dependencies>
+  	<!-- spring -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+	</dependency>
+
+	<!-- servlet & jsp -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>servlet-api</artifactId>
+	</dependency>
+
+	<!-- apache commons -->
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+	</dependency>
+
+	<!-- logging -->
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-api</artifactId>
+	</dependency>
+
+	<!-- framework -->
+	<dependency>
+		<groupId>com.panjin.framework</groupId>
+		<artifactId>framework-tool</artifactId>
+	</dependency>
+
+	<dependency>
+		<groupId>com.panjin.framework</groupId>
+		<artifactId>framework-core</artifactId>
+	</dependency>
   </dependencies>
   
   <build>
