@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 使用托管方式的disconf配置(无代码侵入, 配置更改不会自动reload) -->
+	<bean id="disconf_redis_locations"
+		class="com.baidu.disconf.client.addons.properties.ReloadablePropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>redis.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="disconf_redis_propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="propertiesArray">
+			<list>
+				<ref bean="disconf_redis_locations" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="jedisConnectionFactory"
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" p:timeout="60000" p:usePool="false">
+		<constructor-arg ref="clusterConfig" />
+	</bean>
+	
+	<bean id="clusterConfig" class="org.springframework.data.redis.connection.RedisClusterConfiguration">
+		
+	</bean>
+	
+	<!-- <bean id="clusterConfig" class="org.springframework.data.redis.connection.RedisClusterConfiguration">
+		<property name="clusterNodes">
+			<set>
+				<ref bean="clusterRedisNode01"/>
+			</set>
+		</property>
+	</bean>
+
+	<bean id="clusterRedisNode01" class="org.springframework.data.redis.connection.RedisNode">
+		<property name="host" value="10.166.224.235"/>
+		<property name="port" value="7000"/>
+	</bean> -->
+</beans>
