@@ -29,14 +29,15 @@
 		<constructor-arg ref="clusterConfig" />
 	</bean>
 	
-	<bean id="clusterConfig" class="org.springframework.data.redis.connection.RedisClusterConfiguration">
-		
-	</bean>
-	
 	<!-- <bean id="clusterConfig" class="org.springframework.data.redis.connection.RedisClusterConfiguration">
+		
+	</bean> -->
+	
+	<bean id="clusterConfig" class="org.springframework.data.redis.connection.RedisClusterConfiguration">
 		<property name="clusterNodes">
 			<set>
 				<ref bean="clusterRedisNode01"/>
+				<ref bean="clusterRedisNode02"/>
 			</set>
 		</property>
 	</bean>
@@ -44,5 +45,10 @@
 	<bean id="clusterRedisNode01" class="org.springframework.data.redis.connection.RedisNode">
 		<property name="host" value="10.166.224.235"/>
 		<property name="port" value="7000"/>
-	</bean> -->
+	</bean>
+	
+	<bean id="clusterRedisNode02" class="org.springframework.data.redis.connection.RedisNode">
+		<property name="host" value="10.166.224.235"/>
+		<property name="port" value="7001"/>
+	</bean>
 </beans>
